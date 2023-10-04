@@ -151,7 +151,6 @@
           margin-left: auto;
           margin-right: auto;
           margin-bottom: 40px;
-
       }
 
       .inner-carousel {
@@ -180,9 +179,9 @@
       .support {
           width: 335px;
           height: 472px;
-          margin-top: 112px;
+          margin-top: 86px;
             margin-right: 32px;
-            margin-left: 32px;
+            margin-left: 24px;
             margin-bottom: 100px;
       }
 
@@ -190,6 +189,10 @@
           bottom: -123px;
           left: 112px;
 
+      }
+
+      .aside{
+         display: flex;
       }
   }
 

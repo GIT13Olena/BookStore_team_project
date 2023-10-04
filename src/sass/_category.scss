@@ -62,7 +62,7 @@
     .categories-list {
       width: 337px;
       height: 472px;
-      margin-left: 0;
+      margin-left: 24px;
       margin-right: 0;
     }
     .categories-list::-webkit-scrollbar {
@@ -83,16 +83,10 @@
     .category-item:not(:last-child) {
       margin-bottom: 32px;
     }
-   aside {
-     display: flex;
-     flex-direction: initial;
- }
+  
   
 }  
   @media screen and (min-width: 1440px) {
-    .categories-section {
-      padding-bottom: 86px;
-    }
     .categories-list {
       width: 356px;
       height: 472px;
