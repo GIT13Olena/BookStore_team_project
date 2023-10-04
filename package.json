@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://IgorKryvenko56.github.io/JS-projecteam11new",
+  "homepage": "https://GIT13Olena.github.io/BookStore_team_project",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /JS-projecteam11new/"
+    "build": "parcel build src/*.html --public-url /BookStore_team_project/"
   },
   "repository": {
     "type": "git",
