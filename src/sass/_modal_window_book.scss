@@ -1,13 +1,5 @@
-/* Book cover styles */
-.book-cover {
-  width: 100%;
-  max-width: 335px; /* mobile */
-  margin: 0 auto;
-}
-/* Modal styles */
 .modal {
   display: none;
-  // display: flex;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -25,13 +17,13 @@
   border: 1px solid #888;
   width: 579px;
   height: 465px;
-  max-width: 579px; /* mobile and tablet */
+  max-width: 579px;
   box-sizing: border-box;
   border: 2px solid var(--text-dark);
   border-radius: 18px;
   position: relative;
-  display: flex;
 }
+
 
 .img-book {
   width: 192px;
@@ -150,31 +142,5 @@ strong {
     transform: translate(-50%, -50%);
     max-height: 762px;
     padding: 20px;
-  }
-}
-
-/* Для планшетних пристроїв з шириною екрану від 376px до 768px */
-@media (min-width: 376px) and (max-width: 768px) {
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-/* Для десктопних пристроїв з шириною екрану від 769px до 1440px */
-@media (min-width: 769px) and (max-width: 1440px) {
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
   }
 }

@@ -104,7 +104,7 @@ async function seeMoreBooks (event) {
           <li class="item-category-book" data-book-id="${_id}">
             <a class="link-books-render" href="#" onclick="event.preventDefault()">
               
-                <div class="img-card-book">
+                <div class="img-card-book" >
                   <img src="${book_image}" alt="book" class="img-book">
                   
                 </div>
