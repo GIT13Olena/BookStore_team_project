@@ -22,9 +22,7 @@
 // //   }
 // // }
 // // function getBookData(bookId) {
-// //   console.log(bookId);
 // //   fetchingByBook(bookId).then(book => {
-// //     console.log(book);
 
 // //     const markup = `<div class="img-book" style="background-image: url('${book.book_image}');   background-size: cover;">
 // //                     </div>
@@ -45,7 +43,7 @@
 // //                           <a href="${book.buy_links[1].url}"  >
 // //                             <img
 // //                             src="${appleBooks}"
-// //                             alt="logo shop" 
+// //                             alt="logo shop"
 // //                             />
 // //                           </a>
 // //                         </li>
@@ -53,7 +51,7 @@
 // //                           <a href="${book.buy_links[4].url}">
 // //                             <img
 // //                             src="${bookShop}"
-// //                             alt="logo shop" 
+// //                             alt="logo shop"
 // //                             />
 // //                           </a>
 // //                         </li>
@@ -65,7 +63,6 @@
 // //   });
 // // }
 // // // function showModal(bookId) {
-// // //   //   console.log(Open modal for book with ID: ${bookId});
 // // //   modal.style.display = 'block';
 // // // }
 // // function showModal(bookData) {
@@ -105,7 +102,7 @@
 // //     shoppingList.push(bookData);
 // //     saveShoppingList(shoppingList);
 // //   }
-// // } 
+// // }
 
 // // function getShoppingList() {
 // //   const shoppingList = localStorage.getItem('shoppingList');
@@ -160,13 +157,10 @@
 // //     const response = await axios.get(
 // //       `https://books-backend.p.goit.global/books/${id}`
 // //     );
-// //     console.log(response.data);
 // //     return response.data;
 // //   } catch (error) {
-// //     console.log('catch error', error);
 // //   }
 // // }
-
 
 // import axios from 'axios';
 
@@ -194,7 +188,6 @@
 //     const response = await fetchingByBook(bookId);
 //     return response.data;
 //   } catch (error) {
-//     console.log('Error:', error);
 //     return null;
 //   }
 // }
@@ -298,7 +291,6 @@
 //     );
 //     return response.data;
 //   } catch (error) {
-//     console.log('Error:', error);
 //     throw error;
 //   }
 // }

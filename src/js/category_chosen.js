@@ -1,67 +1,53 @@
-import {renderCategory} from './best_sellers_render'
-import {FetchBooks} from './best_sellers_fetch';
+import { renderCategory } from './best_sellers_render';
+import { FetchBooks } from './best_sellers_fetch';
 import { makeBestesselersOneMoreTime } from './best_sellers_render';
 const categoriesBlock = document.querySelector('.categories-list');
- 
+
 const topBooks = document.querySelector('.book-gallery');
-const allCategories = document.querySelector('.all-categories')
-const allCategoriesItems = document.querySelectorAll('.categories-item')
-const allCategoriesItem = document.querySelector('.categories-item')
+const allCategories = document.querySelector('.all-categories');
+const allCategoriesItems = document.querySelectorAll('.categories-item');
+const allCategoriesItem = document.querySelector('.categories-item');
 const galleryBook = document.querySelector('.book-gallery');
 
- categoriesBlock.addEventListener('click', chooseCategory);
+categoriesBlock.addEventListener('click', chooseCategory);
 //  categoriesBlock.addEventListener('click', makeActive);
 
- 
 // allCategoriesItem.addEventListener('click',makeActive )
 // function makeActive() {
 // allCategoriesItems.forEach(itemCategory => {
 //   itemCategory.addEventListener('click', event => {
-    // const activeCategory = document.querySelector(
-    //   '.active'
-    // );
-    // if (activeCategory) {
-    //   activeCategory.classList.remove('active');
-    //   console.log('remove')
-    // }
-    // event.target.classList.add('active');
-    // console.log('add')
+// const activeCategory = document.querySelector(
+//   '.active'
+// );
+// if (activeCategory) {
+//   activeCategory.classList.remove('active');
+// }
+// event.target.classList.add('active');
 
 //   });
 // });
 // }
 
 function chooseCategory(event) {
-//  makeActive() 
-const activeCategory = document.querySelector(
-  '.active'
-);
-if (activeCategory) {
-  activeCategory.classList.remove('active');
-  console.log('remove')
-}
-event.target.classList.add('active');
-console.log('add')
+  //  makeActive()
+  const activeCategory = document.querySelector('.active');
+  if (activeCategory) {
+    activeCategory.classList.remove('active');
+  }
+  event.target.classList.add('active');
 
   event.preventDefault();
   // console.dir(event);
   // console.dir(event.target.value);
   // console.dir(event.target.classList);
 
-   
+  // event.target.classList.toggle("active")
 
-
-
-   
-    // event.target.classList.toggle("active")
-  
-
-  if (event.target.classList.contains("all-categories")) {
-    makeBestSellersOneTime();///// waiting for import from bestsellersrender
+  if (event.target.classList.contains('all-categories')) {
+    makeBestSellersOneTime(); ///// waiting for import from bestsellersrender
     if (topBooks.innerHTML) {
       topBooks.innerHTML = '';
     }
-    ;
   } else if (event.target.nodeName !== 'LI') {
     return;
   } else {
@@ -74,13 +60,9 @@ console.log('add')
       }
     )
       .then(response => {
-        //   console.log({ response });
         return response.json();
       })
       .then(resData => {
-        // console.log({ resData });
-        console.log(resData);
-        console.log({ resData });
         const removedBestsellersHTML =
           document.querySelector('.render-container');
         const removedChosenHTML = document.querySelector('.book-gallery');
@@ -94,24 +76,29 @@ console.log('add')
         //   const chosen = document.querySelector('.chosen');
         const markup = resData.map(buildTopBooksMarkup).join('');
         removedChosenHTML.innerHTML = markup;
-         
-        try {
-          const categoriesTitle = document.querySelector('.title-best-sellers')
-          categoriesTitle.innerHTML = `<h2 class="title-best-sellers">${event.target.innerHTML
-          .trim()
-          .split(' ')
-          .slice(0, length - 1)
-          .join(' ')} <span class="title-best-sellers-color">${event.target.innerHTML
-          .trim()
-          .split(' ')
-          .pop()}</span></h2>`} catch (error) {
-            console.log('Oops! Something went wrong');
-          }
-         
-      });
-       
 
-    function buildTopBooksMarkup({ list_name, title, author, book_image, _id }) { 
+        try {
+          const categoriesTitle = document.querySelector('.title-best-sellers');
+          categoriesTitle.innerHTML = `<h2 class="title-best-sellers">${event.target.innerHTML
+            .trim()
+            .split(' ')
+            .slice(0, length - 1)
+            .join(
+              ' '
+            )} <span class="title-best-sellers-color">${event.target.innerHTML
+            .trim()
+            .split(' ')
+            .pop()}</span></h2>`;
+        } catch (error) {}
+      });
+
+    function buildTopBooksMarkup({
+      list_name,
+      title,
+      author,
+      book_image,
+      _id,
+    }) {
       return `
       <li class="item-category-book" data-book-id="${_id}">
         <a class="link-books-render" href="#" onclick="event.preventDefault()">
@@ -137,7 +124,7 @@ console.log('add')
   }
 }
 
-async function makeBestSellersOneTime () {
+async function makeBestSellersOneTime() {
   const categories = await renderCategory();
   const screenWidth = window.screen.width;
   let numOfBooks;
@@ -194,14 +181,19 @@ async function makeBestSellersOneTime () {
   if (galleryBook) {
     galleryBook.innerHTML = '';
     galleryBook.insertAdjacentHTML('beforeend', bookList);
-    const titleBestsellerToRemove = document.querySelector('.title-best-sellers')
+    const titleBestsellerToRemove = document.querySelector(
+      '.title-best-sellers'
+    );
     if (!titleBestsellerToRemove) {
-    galleryBook.insertAdjacentHTML(
-      'beforebegin',
-      `
+      galleryBook.insertAdjacentHTML(
+        'beforebegin',
+        `
       <h2 class="title-best-sellers">Best sellers <span class ="title-best-sellers-color">books</span></h2>
-      `)} else {
-        titleBestsellerToRemove.innerHTML = '<h2 class="title-best-sellers">Best sellers <span class ="title-best-sellers-color">books</span></h2>'
-      }
+      `
+      );
+    } else {
+      titleBestsellerToRemove.innerHTML =
+        '<h2 class="title-best-sellers">Best sellers <span class ="title-best-sellers-color">books</span></h2>';
+    }
   }
 }

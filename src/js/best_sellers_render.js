@@ -1,7 +1,6 @@
 import { FetchBooks } from './best_sellers_fetch';
 import Notiflix from 'notiflix';
 
-
 const fetchBooks = new FetchBooks();
 const galleryBook = document.querySelector('.book-gallery');
 
@@ -13,12 +12,11 @@ export async function renderCategory() {
     const { data } = await fetchBooks.fetchTopBooks();
     return data;
   } catch (error) {
-    console.log(error);
     Notiflix.Notify.failure('Oops! Something went wrong... Please try again.');
   }
 }
 
-export async function makeBestSellersOneTime () {
+export async function makeBestSellersOneTime() {
   const categories = await renderCategory();
   const screenWidth = window.screen.width;
   let numOfBooks;
@@ -47,12 +45,8 @@ export async function makeBestSellersOneTime () {
                   
                 </div>
                 <div class="book-info">
-                  
                     <p class="title-book">${book.title}</p>
-                  
-                  
                     <p class="author-book">${book.author}</p>
-                 
                 </div>
               
             </a>
@@ -75,27 +69,35 @@ export async function makeBestSellersOneTime () {
   if (galleryBook) {
     galleryBook.innerHTML = '';
     galleryBook.insertAdjacentHTML('beforeend', bookList);
-    const titleBestsellerToRemove = document.querySelector('.title-best-sellers')
+    const titleBestsellerToRemove = document.querySelector(
+      '.title-best-sellers'
+    );
     if (!titleBestsellerToRemove) {
-    galleryBook.insertAdjacentHTML(
-      'beforebegin',
-      `
+      galleryBook.insertAdjacentHTML(
+        'beforebegin',
+        `
       <h2 class="title-best-sellers">Best sellers <span class ="title-best-sellers-color">books</span></h2>
-      `)} else {
-        titleBestsellerToRemove.innerHTML = '<h2 class="title-best-sellers">Best sellers <span class ="title-best-sellers-color">books</span></h2>'
-      }
+      `
+      );
+    } else {
+      titleBestsellerToRemove.innerHTML =
+        '<h2 class="title-best-sellers">Best sellers <span class ="title-best-sellers-color">books</span></h2>';
+    }
   }
-} makeBestSellersOneTime();
+}
+makeBestSellersOneTime();
 
-// ================ SEE MORE BTN ==================
 if (galleryBook) {
   galleryBook.addEventListener('click', seeMoreBooks);
 }
 
-async function seeMoreBooks (event) {
+async function seeMoreBooks(event) {
   try {
     if (event.target.nodeName === 'BUTTON') {
-      category = event.target.closest('li').querySelector('h3').textContent.trim();
+      category = event.target
+        .closest('li')
+        .querySelector('h3')
+        .textContent.trim();
 
       const renderCategory = await renderingCategory();
       let bookList = '';
@@ -109,12 +111,8 @@ async function seeMoreBooks (event) {
                   
                 </div>
                 <div class="book-info">
-                  
                     <p class="title-book">${title}</p>
-                  
-                  
                     <p class="author-book">${author}</p>
-                 
                 </div>
               
             </a>
@@ -148,7 +146,6 @@ async function seeMoreBooks (event) {
     }
     return;
   } catch (error) {
-    console.log(error);
     Notiflix.Notify.failure('Oops! Something went wrong... Please try again.');
   }
 }
@@ -159,12 +156,10 @@ async function renderingCategory() {
     const { data } = await fetchBooks.fetchCategoryOfBooks();
     return data;
   } catch (error) {
-    console.log(error);
     Notiflix.Notify.failure('Oops! Something went wrong... Please try again.');
   }
 }
 
-// =======================================================
 let currentRenderWidth = window.innerWidth;
 addEventListener('resize', () => {
   if (

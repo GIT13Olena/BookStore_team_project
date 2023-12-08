@@ -1,4 +1,3 @@
- 
 const bookGallery = document.querySelector('.book-gallery');
 const modal = document.querySelector('.modal');
 const modalContent = modal.querySelector('.modal-content');
@@ -32,10 +31,10 @@ function getBookData(bookId) {
     ],
   };
 }
-// function showModal(bookId) {
-//   //   console.log(Open modal for book with ID: ${bookId});
-//   modal.style.display = 'block';
-// }
+function showModal(bookId) {
+  modal.style.display = 'block';
+}
+
 function showModal(bookData) {
   modal.style.display = 'block';
   modalContent.innerHTML = `
