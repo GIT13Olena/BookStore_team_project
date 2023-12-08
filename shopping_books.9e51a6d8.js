@@ -1,2 +1,0 @@
-const e=document.querySelector("input");function o(){document.body.classList.add("night")}e.addEventListener("input",(()=>{e.checked?(o(),localStorage.setItem("theme","on"),console.log(localStorage.theme)):(document.body.classList.remove("night"),localStorage.setItem("theme","off"),console.log(localStorage.theme))})),window.onload=()=>{"on"===localStorage.theme&&(o(),e.checked=!0)};
-//# sourceMappingURL=shopping_books.9e51a6d8.js.map
